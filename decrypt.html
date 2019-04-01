@@ -1,0 +1,33 @@
+<html>
+<head><title></title></head>
+<body>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hybrid-crypto.min.js"></script>
+	<script type="text/javascript">
+		$( document ).ready(function() {
+			$("#decrypt").on("click", function(){
+				var key = $("#key").val();
+				var c = new crypt();
+				var rsa = new RSA();
+				var data = $("#data").val();
+				var encrypted = JSON.parse(atob(data));
+				var decrypted = c.decrypt(key, encrypted);
+				console.log(decrypted["message"]);
+				$("#output").html("<pre>" + decrypted["message"] + "</pre>");
+			});
+		});
+</script>
+
+<div>
+<textarea id="key" style="width: 480px; height: 200px" placeholder="Private Key"></textarea>
+
+<textarea id="data" style="width: 480px; height: 200px" placeholder="Data">
+</textarea>
+</div>
+
+<button id="decrypt">Decrypt</button>
+
+<div id="output"></div>
+
+</body>
+</html>
