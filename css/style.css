@@ -30,7 +30,7 @@ body {
 
 
 ::selection {
-    /*background-color: #f7639a;*/
+    background-color: #f7639a;
     color: #ffffff;
 }
 
